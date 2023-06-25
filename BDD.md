@@ -40,14 +40,11 @@ Then(
 
 Then("each of the products has a name", async function () {
   const productNames = await driver.findElements(By.css(PRODUCT_NAME_SELECTOR));
-
   const names = await Promise.all(
     productNames.map(async (name) => name.getText())
   );
-  
   const allNamesNotEmpty =
     names.every((nameText) => nameText !== "") && names.length > 0;
-
   expect(allNamesNotEmpty, "Not all products have a name").to.be.true;
 });
 
