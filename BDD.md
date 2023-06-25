@@ -16,7 +16,7 @@ Creating:
   * Creating improved ability to diagnose problems and find someone to solve them
 * There is a clear link all the way through from the ticket to the development of the feature
 
-For a brief summary of how the cucumber test runner works, it takes gherkin statements (Given, When, Then, etc) and matches them against corresponding code blocks.  The code blocks are then executed by the cucumber test runner in the same order as the statements from the feature file.  A single block of code can be used by multiple gherkin statements across multiple feature files as long as the gherkin statement is exactly the same
+For a brief summary of how the cucumber test runner works, it takes gherkin statements (Given, When, Then, etc) and matches them against corresponding code blocks.  The code blocks are then executed by the cucumber test runner in the same order as the statements from the feature file.  A single block of code can be used by multiple gherkin statements across multiple feature files as long as the gherkin statement is exactly the same.
 
 ```gherkin
 Scenario: User can view the product page
@@ -39,11 +39,18 @@ Then(
 );
 
 Then("each of the products has a name", async function () {
-  const productNames = await driver.findElements(By.css(".product-name"));
-  productNames.forEach(async (name) => {
-    const nameText = await name.getText();
-    expect(nameText).to.not.be.empty;
-  });
+  const productNames = await driver.findElements(By.css(PRODUCT_NAME_SELECTOR));
+
+  const names = await Promise.all(
+    productNames.map(async (name) => name.getText())
+  );
+  
+  const allNamesNotEmpty =
+    names.every((nameText) => nameText !== "") && names.length > 0;
+
+  expect(allNamesNotEmpty, "Not all products have a name").to.be.true;
+});
+
 });
 
 ```
