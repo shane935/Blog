@@ -1,6 +1,6 @@
 # Experiments in AI development process
 
-The goal of this series is to experiment with integrating AI into different areas of the development process in ways that are productive for companies and developers. This is an experimental areas so I'll be clearly marking which areas I confidently recommend, which are speculation and what are the results of testing my speculation.
+The goal of this series is to experiment with integrating AI into different areas of the development process in ways that are productive for companies and developers. This is an experimental area so I'll be clearly marking which areas I confidently recommend, which are speculation and what are the results of testing my speculation.
 
 ```<ConfidentRecommending>```
 
@@ -11,8 +11,8 @@ The primary advantages of structuring your projects this way is it creates a sha
 Creating:
 
 * More visibility on the progress of features during development
-  * Feature are completed when all the cucumber tests are passing
-* Tests and test reports are readable to non technical people
+  * Features are considered complete when all the cucumber tests are passing
+* Tests and test reports are readable to non-technical people
   * Creating improved ability to diagnose problems and find someone to solve them
 * There is a clear link all the way through from the ticket to the development of the feature
 
@@ -27,7 +27,7 @@ Scenario: User can view the product page
 
 ```typescript
 Given("the user navigates to the product page", async function () {
-  await driver.get(localhost:3000);
+  await driver.get("localhost:3000");
 });
 
 Then(
@@ -56,8 +56,8 @@ Then("each of the products has a name", async function () {
 
 ```<Speculation>```
 
-Feature files provide an excellent starting point to begin integrating AI into your development process, they represent a self contained feature with enough context and detail to create a meaningful set of integration tests without the need to provide an overwhelming amount of information to to create a successful result.
+Feature files provide an excellent starting point to begin integrating AI into your development process, they represent a self contained feature with enough context and detail to create a meaningful set of integration tests without the need to provide an overwhelming amount of information to create a successful result.
 
 ```</Speculation>```
 
-In part two generating meaningful test suites using ChatGPT
+In part two of this series, I  will delve deeper into generating meaningful test suites using ChatGPT. We will look at how this can reduce the load of manual test writing and explore new possibilities for addressing edge cases.
