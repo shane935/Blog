@@ -2,9 +2,9 @@
 
 This is part two of a series for the first part look [here](BDD.part1.md)
 
-Previously I suggested using feature files to provide ChatGPT with enough context to create test suites for BDD. Lets have a look at the most successful approach I have found to generating effective integration tests.
+Previously, I suggested using feature files to provide ChatGPT with enough context to create test suites for BDD. Let's have a look at the most successful approach I have found for generating effective integration tests.
 
-To begin, we need to provide ChatGPT with a detailed prompt that sets the context and asks it to adopt a specific persona.  Its important to include key information, what language we are using, what style we would like it to use, what supplementary files we have and most importantly rhe feature file we are suing to generate the test.  
+To begin, we need to provide ChatGPT with a detailed prompt that sets the context and asks it to adopt a specific persona. It's important to include key information: what language we are using, what style we would like it to use, what supplementary files we have, and most importantly, the feature file we are using to generate the test.
 
 Here is an example prompt:
 
@@ -64,11 +64,11 @@ Here is an example prompt:
 >```
 >
 
-The first response it generates includes a supplementary file that provides functions used to access various elements on the page. Personally I don't like this pattern but you can see it [here](InitialResponse.md)
+The first response it generates includes a supplementary file that provides functions used to access various elements on the page. Personally, I don't like this pattern, but you can see it [here](InitialResponse.md)
 
-It always requires requires a couple of iterations back and forth to write the code with the style and structure you would like.
+It always requires a couple of iterations back and forth to write the code with the style and structure you would like.
 
-Here is the follow up prompt I used to get it looking the way I would like
+Here is the follow-up prompt I used to get it looking the way I would like:
 
 > Could you make few changes
 >
@@ -78,7 +78,7 @@ Here is the follow up prompt I used to get it looking the way I would like
 > Can you move the css selectors out of the file and into constants.js
 >
 
-The final result looks like this
+The final result looks like this:
 
 constants.ts
 
@@ -160,13 +160,13 @@ Then('the user is moved to page {string} of the product list', async function (e
 
 ```
 
-This is a pretty decent starting point for a BDD test suite. It has added in cucumber expressions to generalize the statements and has handled the generic arguments in the last scenario outline quite well.  You will note that one of the functions has no code in it, if prompted ChatGPT will provide this, for best results you will need to provide it details of how your site performs pagination.
+This is a pretty decent starting point for a BDD test suite. It has added in cucumber expressions to generalize the statements and has handled the generic arguments in the last scenario outline quite well. You will note that one of the functions has no code in it. If prompted, ChatGPT will provide this, for best results, you will need to provide it with details of how your site performs pagination.
 
-As an example the prompt I used
+As an example, the prompt I used was:
 
 > Could you write the test for Given('the user is on the {string} page of the product list' the url for the product list page is "localhost:3000/product-list/1
 
-and it's response
+And its response was:
 
 ```typescript
 Given('the user is on page {int} of the product list', async function (pageNumber: number) {
@@ -174,4 +174,4 @@ Given('the user is on page {int} of the product list', async function (pageNumbe
 });
 ```
 
-As you develop it is inevitable that you will need to make changes to the test suite as you make decisions, in part three we will look at refactoring our test suite using ChatGPT to improve test readability and adapt to page updates
+As you develop, it is inevitable that you will need to make changes to the test suite as you make decisions. In part three, we will look at refactoring our test suite using ChatGPT to improve test readability and adapt to page updates.
