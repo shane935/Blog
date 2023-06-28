@@ -4,7 +4,7 @@ This is part two of a series for the first part look [here](BDD.part1.md)
 
 Previously, I suggested using feature files to provide ChatGPT with enough context to create test suites for BDD. Let's have a look at the most successful approach I have found for generating effective integration tests.
 
-To begin, we need to provide ChatGPT with a detailed prompt that sets the context and asks it to adopt a specific persona. It's important to include key information: what language we are using, what style we would like it to use, what supplementary files we have, and most importantly, the feature file we are using to generate the test.
+To begin, we need to provide ChatGPT with a detailed prompt that sets the context and asks it to adopt a specific persona. It's important to include key information: what language we are using, what style we would like it to use, what supplementary files we have, and most importantly, the feature file we are using to generate the integration tests.
 
 Here is an example prompt:
 
