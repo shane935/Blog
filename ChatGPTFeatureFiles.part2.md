@@ -1,4 +1,4 @@
-# Using ChatGPT to generate integration tests
+# Generating integration tests with ChatGPT
 
 This is part two of a series for the first part look [here](BDD.part1.md)
 
