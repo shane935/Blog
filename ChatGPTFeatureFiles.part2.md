@@ -1,10 +1,12 @@
 # Using ChatGPT to generate integration tests
 
-For an introduction to this series look here
+This is part two of a series for the first part look [here](BDD.part1.md)
 
 Previously I suggested using feature files to provide ChatGPT with enough context to create test suites for BDD. Lets have a look at the most successful approach I have found to generating effective integration tests.
 
-We need to provide a very detailed initial prompt that sets the context and asks ChatGPT to adopt a specific persona.  Its important to include key information in this initial prompt.  Here is an example of a prompt i have used.
+To begin, we need to provide ChatGPT with a detailed prompt that sets the context and asks it to adopt a specific persona.  Its important to include key information, what language we are using, what style we would like it to use, what supplementary files we have and most importantly rhe feature file we are suing to generate the test.  
+
+Here is an example prompt:
 
 > For the duration of this chat please act like we are pair coding and you have been asked to write a series of integration tests based on gherkin feature files.  The tests are written in a functional style using typescript, cucumber, selenium and chai.
 >
@@ -62,11 +64,11 @@ We need to provide a very detailed initial prompt that sets the context and asks
 >```
 >
 
-A couple of key things to note about this prompt it details the languages, we are using what style of programming we would like to see, it includes any supplementary files that we need ChatGPT to use as well as providing the feature file we would like to use to generate the tests.
-
 The first response it generates includes a supplementary file that provides functions used to access various elements on the page. Personally I don't like this pattern but you can see it [here](InitialResponse.md)
 
-It generally requires a couple of iterations back and forth to write the code in the style you would like, here is the prompt I used to make the changes
+It always requires requires a couple of iterations back and forth to write the code with the style and structure you would like.
+
+Here is the follow up prompt I used to get it looking the way I would like
 
 > Could you make few changes
 >
@@ -158,7 +160,7 @@ Then('the user is moved to page {string} of the product list', async function (e
 
 ```
 
-In general it is a pretty decent starting point for a BDD test suite. It has added in cucumber expressions to generalize the statements and has handled the generic arguments in the last scenario outline well.  You will note that one of the functions has no code in it, if prompted chatGPT will provide this for best results you will need to provide it details of how your site performs pagination.
+This is a pretty decent starting point for a BDD test suite. It has added in cucumber expressions to generalize the statements and has handled the generic arguments in the last scenario outline quite well.  You will note that one of the functions has no code in it, if prompted ChatGPT will provide this, for best results you will need to provide it details of how your site performs pagination.
 
 As an example the prompt I used
 
