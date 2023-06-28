@@ -1,6 +1,6 @@
 # Quick Wins
 
-Quick wi
+Quick wins
 
 Generating HTML from feature files to begin development
 Quickly creating components from a larger file
