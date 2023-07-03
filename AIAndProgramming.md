@@ -27,6 +27,8 @@ There are a few advantages to using it though
 2. It wont get bored doing menial tasks
 3. It has a very broad knowledge if somewhat incomplete that can quickly lay a base for new tasks
 
+move this section to another page
+
 The key to finding adding AI into your workflow is to find tasks that fit with in this set of requirements, here are things i have used ChatGPT for in the past two weeks. All of these tasks require a minimum amount of context and with the exception of the HTML and components have required some level of iteration on top of what was produced
 
 1. Refactor a file to use a different technology, switching from jest to chai for example.
