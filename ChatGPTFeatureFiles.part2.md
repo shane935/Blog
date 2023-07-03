@@ -68,11 +68,11 @@ The first response it generates includes a supplementary file that provides func
 
 It always requires a couple of iterations back and forth to write the code with the style and structure you would like.
 
-Here is the follow-up prompt I used to get it looking the way I would like:
+Here is the follow-up prompt I used:
 
-> Could you make few changes
+> Could you please a make few changes
 >
-> Please remove pageObjects.ts and in future don't use that pattern in this conversation
+> Remove pageObjects.ts and in future don't use that pattern in this conversation
 > Use the constants file  
 > The URL variable belongs in the constants file  
 > Can you move the css selectors out of the file and into constants.js
@@ -130,17 +130,16 @@ Then('each of the products has a name, a volume and a cost', async function () {
 When('the user clicks on a product in the list', async function () {
   const productList = await driver.findElements(By.css(SELECTORS.PRODUCT_ITEM));
   if (productList.length > 0) {
-    await productList[0].click();  // click the first product in the list
+    await productList[0].click(); 
   }
 });
 
 Then('they are redirected to the details page for that product', async function () {
   const currentUrl = await driver.getCurrentUrl();
-  expect(currentUrl).to.contain('/product/'); // assuming the product details page URL contains '/product/'
+  expect(currentUrl).to.contain('/product/'); 
 });
 
 Given('the user is on page {int} of the product list', async function (pageNumber: string) {
-  // we need to navigate to the page manually here. The implementation will depend on how your site's pagination works.
 });
 
 Then('the {string} pagination arrow is visible', async function (arrowDirection: string) {
@@ -160,11 +159,11 @@ Then('the user is moved to page {string} of the product list', async function (e
 
 ```
 
-This is a pretty decent starting point for a BDD test suite. It has added in cucumber expressions to generalize the statements and has handled the generic arguments in the last scenario outline quite well. You will note that one of the functions has no code in it. If prompted, ChatGPT will provide this, for best results, you will need to provide it with details of how your site performs pagination.
+This is a strong starting point for a BDD test suite. It has added in cucumber expressions {string} and {int} to generalize the statements and has handled the generic arguments in the last scenario outline quite well. You will note that one of the functions has no code in it. If prompted, ChatGPT will provide this, for best results, you will need to provide it with details of how your site performs pagination.
 
 As an example, the prompt I used was:
 
-> Could you write the test for Given('the user is on the {string} page of the product list' the url for the product list page is "localhost:3000/product-list/1
+> Could you write the test for Given('the user is on page {int} of the product list' the url for the product list page is "localhost:3000/product-list/1
 
 And its response was:
 
